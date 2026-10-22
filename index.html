@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>バク転パーソナル教室 岐阜店</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1A237E;
+      --navy-dark: #0D1552;
+      --amber: #FF6F00;
+      --amber-light: #FFA726;
+      --sky: #E3F2FD;
+      --sky-mid: #BBDEFB;
+      --white: #FFFFFF;
+      --ink: #1A1A2E;
+      --gray: #666;
+      --gray-light: #f5f7ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--navy);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .header-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
+    }
+    .header-name:hover { color: var(--amber-light); }
+
+    .header-cta {
+      background: var(--amber);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      border-radius: 50px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .header-cta:hover { background: var(--amber-light); }
+
+    /* ===== HERO IMAGE ===== */
+    .hero-image-wrap {
+      width: 100%;
+      max-height: 520px;
+      overflow: hidden;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== HERO TEXT ===== */
+    .hero-text {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #1565C0 100%);
+      color: var(--white);
+      padding: 52px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,111,0,0.15);
+    }
+    .hero-text::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(255,111,0,0.10);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-text h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: clamp(1.7rem, 6vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--amber-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.9rem, 3vw, 1.1rem);
+      opacity: 0.88;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 50px;
+      border: 2px solid rgba(255,255,255,0.7);
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 56px 24px; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      background: rgba(255,111,0,0.08);
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ===== SERVICE (STAR CARD) ===== */
+    .service-section {
+      background: var(--gray-light);
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(26,35,126,0.10);
+    }
+
+    .service-card-top {
+      background: linear-gradient(135deg, var(--amber) 0%, #E65100 100%);
+      padding: 28px 28px 20px;
+      color: var(--white);
+    }
+    .service-card-top .star-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(255,255,255,0.25);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      letter-spacing: 0.08em;
+    }
+    .service-card-top h3 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .service-card-top p { font-size: 0.9rem; opacity: 0.9; }
+
+    .service-list {
+      padding: 24px 28px 28px;
+      list-style: none;
+    }
+    .service-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--sky-mid);
+      font-size: 0.93rem;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .service-list li:last-child { border-bottom: none; }
+    .service-list li::before {
+      content: '✦';
+      color: var(--amber);
+      font-size: 0.8rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .coming-soon {
+      margin-top: 20px;
+      background: var(--sky);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      font-size: 0.87rem;
+    }
+    .coming-soon strong { color: var(--navy); display: block; margin-bottom: 4px; font-size: 0.8rem; }
+
+    /* ===== STRENGTHS ===== */
+    .strength-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .strength-card {
+      background: var(--white);
+      border: 2px solid var(--sky-mid);
+      border-radius: 16px;
+      padding: 24px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .strength-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--navy) 0%, #1565C0 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .strength-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .strength-body p { font-size: 0.87rem; color: var(--gray); line-height: 1.65; }
+
+    /* ===== FOUNDER ===== */
+    .founder-section {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      color: var(--white);
+    }
+    .founder-section h2 { color: var(--white); }
+    .founder-section .section-label { color: var(--amber-light); background: rgba(255,167,38,0.15); }
+
+    .founder-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+
+    .founder-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: var(--amber-light);
+    }
+
+    .founder-achievements {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .achievement-badge {
+      background: var(--amber);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+
+    .founder-text { font-size: 0.9rem; opacity: 0.88; line-height: 1.75; }
+
+    /* ===== REVIEWS ===== */
+    .reviews-section { background: var(--sky); }
+
+    .review-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 12px rgba(26,35,126,0.07);
+    }
+    .review-card:last-child { margin-bottom: 0; }
+
+    .review-stars { color: #FFC107; font-size: 1.1rem; margin-bottom: 10px; }
+    .review-text { font-size: 0.88rem; color: var(--ink); line-height: 1.75; }
+
+    /* ===== CTA BAND ===== */
+    .cta-band {
+      background: linear-gradient(135deg, var(--amber) 0%, #E65100 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 52px 24px;
+    }
+    .cta-band h2 { color: var(--white); margin-bottom: 12px; }
+    .cta-band p { opacity: 0.9; margin-bottom: 28px; font-size: 0.95rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-white {
+      background: var(--white);
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 15px 40px;
+      border-radius: 50px;
+      display: inline-block;
+      transition: transform 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* ===== INFO ===== */
+    .info-section { background: var(--gray-light); }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .info-table tr { border-bottom: 1px solid var(--sky-mid); }
+    .info-table th {
+      text-align: left;
+      padding: 12px 4px;
+      color: var(--navy);
+      font-weight: 700;
+      white-space: nowrap;
+      width: 90px;
+      vertical-align: top;
+    }
+    .info-table td {
+      padding: 12px 4px 12px 12px;
+      color: var(--ink);
+    }
+    .info-table a { color: var(--amber); text-decoration: none; }
+    .info-table a:hover { text-decoration: underline; }
+
+    /* ===== MAP ===== */
+    .map-section { padding: 0 0 56px; }
+    .map-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      display: block;
+    }
+    .map-btn-wrap {
+      text-align: center;
+      padding: 20px 24px 0;
+    }
+    .btn-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-map:hover { background: var(--navy-dark); transform: translateY(-2px); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 36px 24px 28px;
+    }
+
+    .footer-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--amber-light); }
+
+    .footer-sns {
+      margin-bottom: 20px;
+    }
+    .sns-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .sns-link:hover { border-color: #E1306C; color: #E1306C; }
+
+    .footer-copy { font-size: 0.75rem; opacity: 0.5; }
+
+    /* Instagram SVG icon */
+    .ig-icon { width: 16px; height: 16px; display: inline-block; vertical-align: middle; fill: currentColor; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 600px) {
+      .strength-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 400px) {
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; max-width: 280px; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <a href="https://bakuten-personal.com/school/gihu/" class="header-name" target="_blank" rel="noopener">
+    バク転パーソナル教室<br>岐阜店
+  </a>
+  <a href="https://bakuten-personal.com/contact/" class="header-cta" target="_blank" rel="noopener">お問い合わせ</a>
+</header>
+
+<!-- ===== HERO IMAGE ===== -->
+<div class="hero-image-wrap">
+  <img src="images/hero.png" alt="バク転パーソナル教室 岐阜店">
+</div>
+
+<!-- ===== HERO TEXT ===== -->
+<div class="hero-text">
+  <span class="hero-badge">岐阜でバク転・アクロバットを学ぶなら</span>
+  <h1>プロが教える<em>マンツーマン</em>で<br>はじめての一回転へ</h1>
+  <p class="hero-sub">子どもから大人まで、初心者歓迎。<br>新体操日本一経験者が監修した正しい技術をあなたのペースで。</p>
+  <div class="hero-btns">
+    <a href="https://bakuten-personal.com/contact/" class="btn-primary" target="_blank" rel="noopener">体験レッスンを申し込む</a>
+    <a href="#info" class="btn-outline">教室の詳細を見る</a>
+  </div>
+</div>
+
+<!-- ===== SERVICE (イチオシ) ===== -->
+<section class="service-section">
+  <div class="container">
+    <span class="section-label">イチオシのレッスン</span>
+    <h2>オーダーメイドの<br>マンツーマンレッスン</h2>
+
+    <div class="service-card">
+      <div class="service-card-top">
+        <span class="star-label">おすすめ</span>
+        <h3>あなただけの個別プログラム</h3>
+        <p>レベル・目標・体力に合わせて講師が組み立てるパーソナルレッスン</p>
+      </div>
+      <ul class="service-list">
+        <li>プロ講師が一人ひとりのレベルや目標に合わせたレッスンを提供</li>
+        <li>正しいフォームの習得を重視し、怪我のリスクを抑えながら練習</li>
+        <li>子どもから大人、初心者まで受講可能</li>
+        <li>バク転・バク宙・パルクールなど、希望に合わせた技の指導</li>
+        <li>運動不足解消・ダイエット・自分への自信獲得を目的に通う方も増えています</li>
+      </ul>
+    </div>
+
+    <div class="coming-soon">
+      <strong>🎥 準備中の新サービス</strong>
+      レッスン映像をアドバイス付きでクラウド経由にてスマホへ転送するサービスを準備中です。
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRENGTHS ===== -->
+<section>
+  <div class="container">
+    <span class="section-label">選ばれる理由</span>
+    <h2>バク転パーソナル教室の<br>3つの特長</h2>
+
+    <div class="strength-grid">
+      <div class="strength-card">
+        <div class="strength-icon">🏅</div>
+        <div class="strength-body">
+          <h3>日本一経験者が監修</h3>
+          <p>新体操インカレ4連覇・全国大会3度優勝の実績を持つ指導者が監修した、高品質なアクロバット技術を学べます。</p>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">🤸</div>
+        <div class="strength-body">
+          <h3>完全マンツーマン指導</h3>
+          <p>一人ひとりの技量やペースに合わせた個別形式だから、初心者でも効率よく上達できます。</p>
+        </div>
+      </div>
+      <div class="strength-card">
+        <div class="strength-icon">📹</div>
+        <div class="strength-body">
+          <h3>動画で客観的に確認</h3>
+          <p>練習映像を一緒に確認しながら改善点を視覚的に理解。自分の動きを知ることで上達が加速します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER ===== -->
+<section class="founder-section">
+  <div class="container">
+    <span class="section-label">代表者プロフィール</span>
+    <h2>創業者ストーリー</h2>
+
+    <div class="founder-box">
+      <p class="founder-name">谷 俊太朗（たに しゅんたろう）</p>
+
+      <div class="founder-achievements">
+        <span class="achievement-badge">インカレ4連覇</span>
+        <span class="achievement-badge">全国大会3度優勝</span>
+        <span class="achievement-badge">新体操トップ選手</span>
+      </div>
+
+      <p class="founder-text">
+        新体操に打ち込み、大学時代にはインカレ4連覇、全国大会で3度の優勝を果たしたトップ選手でした。自身の経験と専門知識を活かし、一人ひとりの「やってみたい」を支える教室づくりに取り組んでいます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews-section">
+  <div class="container">
+    <span class="section-label">お客様の声</span>
+    <h2>通ってくださった方の<br>ご感想</h2>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">体験で1日レッスン受けました。レッスンは女性の方が教えてくださり、娘がレッスンを受けていました。娘も最初は緊張していたものの優しく教えてもらえて、楽しく教えてもらえていました。動画で自分の姿を振り返ったりとひとつひとつ丁寧でよかったです。娘も習う！とすぐ返事をしていたので、楽しくレッスンしてもらえたようです。</p>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">先生の教え方がとても上手で、みるみる上達できます。優しい指導で初心者でも安心して通えます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<div class="cta-band">
+  <h2>まずは体験レッスンへ</h2>
+  <p>初めての方もお気軽にどうぞ。あなたのペースに合わせてご案内します。</p>
+  <a href="https://bakuten-personal.com/contact/" class="btn-white" target="_blank" rel="noopener">体験レッスンを申し込む →</a>
+</div>
+
+<!-- ===== INFO ===== -->
+<section class="info-section" id="info">
+  <div class="container">
+    <span class="section-label">教室情報</span>
+    <h2>アクセス・営業情報</h2>
+
+    <table class="info-table">
+      <tr>
+        <th>教室名</th>
+        <td>バク転パーソナル教室 岐阜店</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>〒500-8332<br>岐阜県岐阜市羽衣町３丁目１６</td>
+      </tr>
+      <tr>
+        <th>電話</th>
+        <td><a href="tel:08076475532">080-7647-5532</a></td>
+      </tr>
+      <tr>
+        <th>休校日</th>
+        <td>月曜・金曜</td>
+      </tr>
+      <tr>
+        <th>公式サイト</th>
+        <td><a href="https://bakuten-personal.com/school/gihu/" target="_blank" rel="noopener">bakuten-personal.com</a></td>
+      </tr>
+      <tr>
+        <th>お問い合わせ</th>
+        <td><a href="https://bakuten-personal.com/contact/" target="_blank" rel="noopener">お問い合わせフォーム</a></td>
+      </tr>
+      <tr>
+        <th>Instagram</th>
+        <td><a href="https://www.instagram.com/bakuten_personal_gifu/" target="_blank" rel="noopener">@bakuten_personal_gifu</a></td>
+      </tr>
+      <tr>
+        <th>運営会社</th>
+        <td>株式会社bakuten</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<div class="map-section">
+  <div class="map-wrap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3251.711357500415!2d136.74188560000002!3d35.4124045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003af52db7ada8b%3A0xbc3247e96b3c12ed!2z44OQ44Kv6Lui44OR44O844K944OK44Or5pWZ5a6kIOWykOmYnOW6lw!5e0!3m2!1sja!2sjp!4v1792382952452!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+  <div class="map-btn-wrap">
+    <a href="https://www.google.com/maps/place/%E3%83%90%E3%82%AF%E8%BB%A2%E3%83%91%E3%83%BC%E3%82%BD%E3%83%8A%E3%83%AB%E6%95%99%E5%AE%A4+%E5%B2%90%E9%98%9C%E5%BA%97/@35.4124045,136.7418856,17z/data=!3m1!4b1!4m6!3m5!1s0x6003af52db7ada8b:0xbc3247e96b3c12ed!8m2!3d35.4124045!4d136.7418856!16s%2Fg%2F11kq0vp849?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D" class="btn-map" target="_blank" rel="noopener">
+      📍 Googleマップで見る
+    </a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p class="footer-name">バク転パーソナル教室 岐阜店</p>
+
+  <div class="footer-links">
+    <a href="https://bakuten-personal.com/school/gihu/" target="_blank" rel="noopener">公式サイト</a>
+    <a href="https://bakuten-personal.com/contact/" target="_blank" rel="noopener">お問い合わせ</a>
+  </div>
+
+  <div class="footer-sns">
+    <a href="https://www.instagram.com/bakuten_personal_gifu/" class="sns-link" target="_blank" rel="noopener">
+      <svg class="ig-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+
+  <p class="footer-copy">© 株式会社bakuten. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
